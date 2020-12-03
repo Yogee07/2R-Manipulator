@@ -1,0 +1,78 @@
+A51 MACRO ASSEMBLER  MICRO_PRJ__1_                                                        04/07/2020 15:33:59 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\MICRO_PRJ (1).obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE MICRO_PRJ (1).asm SET(SMALL) DEBUG PRINT(.\Listings\MICRO_PRJ (1).lst) 
+                      OBJECT(.\Objects\MICRO_PRJ (1).obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000                   2     HERE:
+0000 D2A0              3     SETB P2.0
+0002 1110              4     ACALL ON1
+0004 C2A0              5     CLR P2.0
+0006 D2A1              6     SETB P2.1
+0008 1123              7     ACALL ON2
+000A C2A1              8     CLR P2.1
+000C 1136              9     ACALL OFF
+000E 80F0             10     SJMP HERE
+                      11     
+0010                  12     ON1:
+0010 758901           13     MOV TMOD,#01H
+0013 758CFA           14     MOV TH0,#0FAH
+0016 758A9A           15     MOV TL0,#09AH
+0019 D28C             16     SETB TR0
+001B 308DFD           17     LOOP: JNB TF0,LOOP
+001E C28C             18     CLR TR0
+0020 C28D             19     CLR TF0
+0022 22               20     RET
+                      21     
+0023                  22     ON2:
+0023 758901           23     MOV TMOD,#01H
+0026 758CF7           24     MOV TH0,#0F7H
+0029 758A00           25     MOV TL0,#000H
+002C D28C             26     SETB TR0
+002E 308DFD           27     LOOP1: JNB TF0,LOOP1
+0031 C28C             28     CLR TR0
+0033 C28D             29     CLR TF0
+0035 22               30     RET
+                      31     
+0036                  32     OFF:
+0036 758901           33     MOV TMOD,#01H                  
+0039 758CC6           34     MOV TH0,#0C6H                  
+003C 758A65           35     MOV TL0,#065H
+003F D28C             36     SETB TR0
+0041 308DFD           37     LOOP2: JNB TF0,LOOP2
+0044 C28C             38     CLR TR0
+0046 C28D             39     CLR TF0
+0048 22               40     RET
+                      41     end
+A51 MACRO ASSEMBLER  MICRO_PRJ__1_                                                        04/07/2020 15:33:59 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+HERE . . . . . . .  C ADDR   0000H   A   
+LOOP . . . . . . .  C ADDR   001BH   A   
+LOOP1. . . . . . .  C ADDR   002EH   A   
+LOOP2. . . . . . .  C ADDR   0041H   A   
+OFF. . . . . . . .  C ADDR   0036H   A   
+ON1. . . . . . . .  C ADDR   0010H   A   
+ON2. . . . . . . .  C ADDR   0023H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

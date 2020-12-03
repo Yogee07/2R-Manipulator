@@ -1,0 +1,3 @@
+".\Objects\MICRO_PRJ (1).obj" 
+TO ".\Objects\mic pro" 
+PRINT(".\Listings\mic pro.m51") RAMSIZE(256) 
